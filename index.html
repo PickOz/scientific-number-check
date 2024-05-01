@@ -90,13 +90,10 @@ p {
 <script>
 function acceptScientificNumber() {
   var input = document.getElementById("scientificNumber").value;
-  var number = parseFloat(input);
-  if (!isNaN(number)) {
-    document.getElementById("result").innerText = "Accepted";
-  } else {
-    document.getElementById("result").innerText = "Invalid input";
-  }
-}
+  var  scientificRegex = /^[+-]?\d+(\.\d+)?[eE][+-]?\d+$/;
+        var resultText = input + (scientificRegex.test(input) ? " is a valid scientific number." : " is not a valid scientific number.");
+        document.getElementById("result").innerText = resultText;
+    }
 </script>
 </body>
 </html>
